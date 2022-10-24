@@ -2,7 +2,7 @@ import {AuthConsumer as useAuth} from "../../auth";
 import {Button, Card, CardContent, Grid, Paper, TextField} from "@mui/material";
 import {Form, Input, message} from "antd";
 import {Link, useNavigate} from "react-router-dom";
-import Logo from "../../components/Logo";
+import Logo from "../../components/logo/Logo";
 import {authedRequest} from "../../http";
 
 function Login() {

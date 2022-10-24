@@ -1,7 +1,7 @@
 import {Button, Grid, Paper, TextField} from "@mui/material";
 import {Form, message} from "antd";
 import {Link, useNavigate} from "react-router-dom";
-import Logo from "../../components/Logo";
+import Logo from "../../components/logo/Logo";
 import {authedRequest} from "../../http";
 import {AuthConsumer as useAuth} from "../../auth";
 
@@ -44,8 +44,8 @@ function Register() {
                             <Form.Item
                                 rules={[{ required: true, message: 'Please input your username!' }]}
                                 name={'username'}>
-                            <TextField label="Username" fullWidth variant="filled" />
-                            {/*<TextField label="Username*" fullWidth variant="filled" />*/}
+                            <TextField label="username" fullWidth variant="filled" />
+                          
                             </Form.Item>
 
                             <label className={'form-label text-secondary fw-bold'}>Email Address</label>

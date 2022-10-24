@@ -1,23 +1,12 @@
-import {
-    Button,
-    Checkbox,
-    FormControl,
-    InputLabel,
-    ListItemText,
-    MenuItem,
-    Select,
-    TextField,
-    Typography
-} from "@mui/material";
-
+import {Button,Typography} from "@mui/material";
 import {Input, Table} from "antd";
-import CreateContact from "./components/CreateContact";
+import CreateContact from "../contacts/modules/createContact/CreateContact";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {REFRESH_CONTACTS, SET_QUERY} from "../../store";
+import {REFRESH_CONTACTS, SET_QUERY} from "../contacts/store";
 import moment from 'moment';
-import SearchSelector from "../../../../components/SearchSelector";
-import {useStaff} from "../../../../hooks/useStaff";
+import SearchSelector from "../../components/searchSelector/SearchSelector";
+import {useStaff} from "../../hooks/useStaff";
 
 const TableColumns = [
     {
