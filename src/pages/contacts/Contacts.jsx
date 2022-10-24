@@ -79,6 +79,7 @@ function Contacts() {
     const [lifeCycleStage, setLifeCycleStage] = useState([]);
     const {staffs} = useStaff();
     const [assignedTo, setAssignedTo] = useState([]);
+    
     useEffect(() => {
         dispatch(REFRESH_CONTACTS());
     }, []);

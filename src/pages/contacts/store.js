@@ -8,7 +8,9 @@ const Actions = {
 }
 
 export const homeSlice = createSlice({
+
     name: 'home',
+
     initialState: {
         keyword: '',
         assignedTo: [],
@@ -25,13 +27,17 @@ export const homeSlice = createSlice({
             state.contacts = action.payload;
         }
     }
+
 })
 
 export const { SET_CONTACTS, SET_QUERY } = homeSlice.actions;
 
 export const REFRESH_CONTACTS = () => (dispatch, getState) => {
+
     const state = getState();
+
     const {keyword, assignedTo, lifeCycleStage} = state.home;
+
     authedRequest.get('/api/contacts', {
         params: {
             keyword,
@@ -48,6 +54,7 @@ export const REFRESH_CONTACTS = () => (dispatch, getState) => {
 
 export const CREATE_CONTACT = (contact) => dispatch => {
     authedRequest.post(`/api/contacts`, contact)
+    
     .then(() => {
         message.success('Create successfully!');
         dispatch(REFRESH_CONTACTS());

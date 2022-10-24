@@ -12,6 +12,7 @@ function Register() {
 
     const handleSubmit = async (values) => {
         const res = await authedRequest.post('/api/users/register', values);
+
         const token = res.data.token;
         login(token)
         .then(() => {
@@ -39,13 +40,12 @@ function Register() {
                             <Logo />
 
                             <h5 className={'mt-3'}>Sign up</h5>
-                            <label className={'form-label text-secondary fw-bold mt-4'}>Username</label>
 
+                            <label className={'form-label text-secondary fw-bold mt-4'}>Username</label>
                             <Form.Item
                                 rules={[{ required: true, message: 'Please input your username!' }]}
                                 name={'username'}>
-                            <TextField label="username" fullWidth variant="filled" />
-                          
+                                <TextField label="username" fullWidth variant="filled" />
                             </Form.Item>
 
                             <label className={'form-label text-secondary fw-bold'}>Email Address</label>
@@ -54,7 +54,7 @@ function Register() {
                                     { required: true, message: 'Please input an correct email!', type: 'email' },
                                 ]}
                                 name={'email'}>
-                            <TextField label="Email Address" fullWidth variant="filled" />
+                                <TextField label="Email Address" fullWidth variant="filled" />
                             </Form.Item>
 
                             <label className={'form-label text-secondary fw-bold'}>Password</label>
@@ -63,7 +63,7 @@ function Register() {
                                 rules={[
                                 { required: true, message: 'Please input your password!' }
                                 ]}>
-                            <TextField type={'password'} label="Password*" fullWidth variant="filled" />
+                                <TextField type={'password'} label="Password*" fullWidth variant="filled" />
                             </Form.Item>
 
                             <label className={'form-label text-secondary fw-bold'}>Confirm your password</label>
@@ -85,12 +85,12 @@ function Register() {
                             </Form.Item>
 
                             <Form.Item>
-                            <Button type={'submit'} fullWidth variant={'contained'} color={'primary'}>Sign up</Button>
+                                <Button type={'submit'} fullWidth variant={'contained'} color={'primary'}>Sign up</Button>
                             </Form.Item>
 
                             <p className={'text-black text-end'}>
-                            Already have an account?
-                            <Link className={'text-info'} to={'/login'}>Sign In</Link>
+                                Already have an account?
+                                <Link className={'text-info'} to={'/login'}>Sign In</Link>
                             </p>
 
                         </Form>

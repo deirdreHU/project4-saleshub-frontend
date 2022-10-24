@@ -6,7 +6,7 @@ function Home() {
     <div className={'container-fluid p-0 d-flex flex-column'}>
       <HeaderBar />
       <div className={'w-100 p-4'}>
-        <Outlet />
+        {/* <Outlet /> */}
       </div>
     </div>
   )
