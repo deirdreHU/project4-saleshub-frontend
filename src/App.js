@@ -1,6 +1,6 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import {ProtectedRoute} from "./auth/protected.route";
-import Home from "./pages/home/Home";
+import Home from "./pages/contacts/Home";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Contacts from "./pages/contacts/Contacts";
@@ -16,8 +16,7 @@ function App() {
         </ProtectedRoute>
       }>
 
-        <Route path={''} index element={<Home />} />
-
+        <Route path={''} index element={<Navigate to={'contacts'} />} />
         <Route path={'contacts'} element={<Contacts />}/>
         <Route path={'contacts/create'} element={<CreateContact />}/>
         

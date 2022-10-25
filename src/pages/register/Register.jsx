@@ -17,7 +17,7 @@ function Register() {
         login(token)
         .then(() => {
             message.success("Welcome!");
-            navigate('');
+            navigate('/login');
         });
     }
 

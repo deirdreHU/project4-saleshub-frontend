@@ -1,6 +1,6 @@
 import {AuthConsumer as useAuth} from "../../auth";
-import {Button, Card, CardContent, Grid, Paper, TextField} from "@mui/material";
-import {Form, Input, message} from "antd";
+import {Button, Grid, Paper, TextField} from "@mui/material";
+import {Form, message} from "antd";
 import {Link, useNavigate} from "react-router-dom";
 import Logo from "../../components/logo/Logo";
 import {authedRequest} from "../../http";
@@ -8,9 +8,12 @@ import {authedRequest} from "../../http";
 function Login() {
 
     const { login } = useAuth();
+
     const navigate = useNavigate();
+
     // Responses to user click submit button
     const handleSubmit = async (values) => {
+        console.log("values:",values)
         const res = await authedRequest.post('/api/users/login', values);
         const token = res.data.token;
         login(token)
@@ -62,7 +65,7 @@ function Login() {
 
                             <p className={'text-black text-end'}>
                                 Don't have account yet?
-                                <Link className={'text-info'} to={'/register'}>New Account</Link>
+                                <Link className={'text-info'} to={'/register'}>Create New Account</Link>
                             </p>
                         </Form>
 
