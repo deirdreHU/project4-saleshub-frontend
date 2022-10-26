@@ -7,6 +7,7 @@ import {REFRESH_CONTACTS, SET_QUERY} from "../contacts/store";
 import moment from 'moment';
 import SearchSelector from "../../components/searchSelector/SearchSelector";
 import {useStaff} from "../../hooks/useStaff";
+import {useNavigate} from "react-router-dom";
 
 const TableColumns = [
     {
@@ -75,7 +76,8 @@ const TableColumns = [
 function Contacts() {
     const contacts = useSelector(state => state.home.contacts);
     const dispatch = useDispatch();
-    const [keyword, setKeyword] = useState('');
+    const navigate = useNavigate();
+    // const [keyword, setKeyword] = useState('');
     const [lifeCycleStage, setLifeCycleStage] = useState([]);
     const {staffs} = useStaff();
     const [assignedTo, setAssignedTo] = useState([]);
@@ -144,7 +146,16 @@ function Contacts() {
 
             </div>
 
-            <Table className={'mt-4'} columns={TableColumns} dataSource={contacts}/>
+            <Table
+                onRow={record => {
+                    return {
+                        onClick: e => {
+                        navigate(`/contacts/${record.contactId}`)
+                        }
+                    }
+                }}
+
+                className={'mt-4'} columns={TableColumns} dataSource={contacts}/>
 
         </div>
 

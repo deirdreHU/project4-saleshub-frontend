@@ -5,6 +5,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Contacts from "./pages/contacts/Contacts";
 import CreateContact from './pages/contacts/modules/createContact/CreateContact';
+import ContactDetail from "./pages/contact-detail/index";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path={''} index element={<Navigate to={'contacts'} />} />
         <Route path={'contacts'} element={<Contacts />}/>
         <Route path={'contacts/create'} element={<CreateContact />}/>
+        <Route path={'contacts/:contact_id'} element={<ContactDetail />} />
         
 
       </Route>
