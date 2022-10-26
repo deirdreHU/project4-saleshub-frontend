@@ -1,8 +1,27 @@
 import ListIcon from '@mui/icons-material/List';
 import MenuAction from "../../../../components/menuAction/MenuAction";
 import {Avatar, Divider} from "@mui/material";
+import EditContact from "./components/EditContact";
+import {useState} from "react";
+import {useNavigate, useParams} from "react-router-dom";
+import {Modal} from 'antd';
+import {authedRequest} from "../../../../http";
 
 function Detail({contact}) {
+
+    const navigate = useNavigate();
+    const {contact_id} = useParams();
+    const [editVisible, setEditVisible] = useState(false);
+
+    const handleDelete = async () => {
+        Modal.confirm({
+            content: 'Do you want to delete this contact?',
+            onOk: async () => {
+            await authedRequest.delete(`/api/contacts/${contact_id}`);
+            navigate(-1);
+            }
+        })
+    }
     
     if (!contact) {
         return <></>;
@@ -11,7 +30,15 @@ function Detail({contact}) {
         <div className={'p-3'}>
 
             <div className={'d-flex justify-content-end'}>
-                <MenuAction />
+                <EditContact
+                    defaultValues={{...contact}}
+                    onClose={() => setEditVisible(false)} visible={editVisible}/>
+                
+                <MenuAction
+                    onDelete={handleDelete}
+                    onEdit={() => {
+                        setEditVisible(true);
+                    }}/>
             </div>
 
             <div className={'d-flex align-items-center'}>
