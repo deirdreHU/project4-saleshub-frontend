@@ -3,12 +3,21 @@ import {Grid} from "@mui/material";
 import Detail from "./modules/detail";
 import Extra from "./modules/extra";
 import {useContact} from '../../hooks/useContact';
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {REFRESH_CONTACT} from "../contacts/store";
 
 function ContactDetail() {
 
     const {contact_id} = useParams();
+    const contact = useSelector(state => state.home.contact);
+    const dispatch = useDispatch();
 
-    const {contact} = useContact(contact_id);
+    useEffect(() => {
+        dispatch(REFRESH_CONTACT(contact_id));
+    }, [contact_id]);
+
+
 
     return (
 

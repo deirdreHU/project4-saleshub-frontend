@@ -14,6 +14,10 @@ function HeaderBar() {
                 <Button className={'text-white'}>Contacts</Button>
             </div>
 
+            {/* <div className={'d-flex me-auto'}>
+                <Button className={'text-white'}>Deals</Button>
+            </div> */}
+
             <div className={'me-3 d-flex h-100 align-items-center'}>
                 <MenuAvatar />
             </div>

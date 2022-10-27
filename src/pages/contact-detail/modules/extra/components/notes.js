@@ -6,7 +6,7 @@ import {useState} from "react";
 
 import {authedRequest} from "../../../../../http";
 import {useDispatch} from "react-redux";
-import {REFRESH_CONTACT} from "../../../../home/store";
+import {REFRESH_CONTACT} from "../../../../contacts/store";
 import {useParams} from "react-router-dom";
 import {Modal} from 'antd';
 

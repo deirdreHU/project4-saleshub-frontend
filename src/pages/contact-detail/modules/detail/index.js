@@ -1,11 +1,12 @@
-import ListIcon from '@mui/icons-material/List';
+
 import MenuAction from "../../../../components/menuAction/MenuAction";
 import {Avatar, Divider} from "@mui/material";
-import EditContact from "./components/EditContact";
+import EditContact from "./editContact/EditContact";
 import {useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {Modal} from 'antd';
 import {authedRequest} from "../../../../http";
+
 
 function Detail({contact}) {
 
