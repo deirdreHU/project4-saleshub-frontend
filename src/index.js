@@ -8,27 +8,34 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {AuthProvider} from "./auth";
 import {Provider} from "react-redux";
 import {store} from "./store";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
-  <React.StrictMode>
+  <LocalizationProvider dateAdapter={AdapterDayjs}>
 
-    <Provider store={store}>
+    <React.StrictMode>
 
-      <AuthProvider>
+      <Provider store={store}>
 
-        <BrowserRouter>
+        <AuthProvider>
 
-          <App />
+          <BrowserRouter>
 
-        </BrowserRouter>
+            <App />
 
-      </AuthProvider>
+          </BrowserRouter>
 
-    </Provider>
+        </AuthProvider>
+
+      </Provider>
+      
+    </React.StrictMode>
     
-  </React.StrictMode>
+  </LocalizationProvider>
+
 );
 
 

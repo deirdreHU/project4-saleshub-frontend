@@ -1,22 +1,33 @@
 import style from './HeaderBar.module.css';
 import AppsIcon from '@mui/icons-material/Apps';
-import { Button} from "@mui/material";
+import {Button} from "@mui/material";
 import MenuAvatar from "../menuAvartar/MenuAvatar";
+import {useLocation, useNavigate} from "react-router-dom";
 
 function HeaderBar() {
+
+    const location = useLocation();
+    const pathname = location.pathname;
+    const navigate = useNavigate();
+
     return (
         <div className={style.headerBar + ' ' + 'bg-primary d-flex align-items-center'}>
 
             <AppsIcon className={'text-white me-3'}/>
+            
             <h5 className={'m-0 text-white me-4'}>SalesHub</h5>
 
             <div className={'d-flex me-auto'}>
-                <Button className={'text-white'}>Contacts</Button>
-            </div>
+                <Button 
+                    color={pathname.includes('/contacts') ? 'info' : ''}
+                    variant={pathname.includes('/contacts') ? 'contained' : ''}  
+                    className={'text-white'} onClick={() => navigate('/contacts')}>Contacts</Button>
 
-            {/* <div className={'d-flex me-auto'}>
-                <Button className={'text-white'}>Deals</Button>
-            </div> */}
+                <Button
+                    color={pathname.includes('/deals') ? 'info' : ''}
+                    variant={pathname.includes('/deals') ? 'contained' : ''}
+                    className={'text-white'} onClick={() => navigate('/deals')}>Deals</Button>
+            </div>
 
             <div className={'me-3 d-flex h-100 align-items-center'}>
                 <MenuAvatar />

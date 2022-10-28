@@ -1,4 +1,5 @@
 import MenuAction from "../../../../../components/menuAction/MenuAction";
+import {Avatar, Button} from "@mui/material";
 import {CreateNote} from "./createNote";
 import {EditNote} from "./editNote";
 
@@ -8,7 +9,7 @@ import {authedRequest} from "../../../../../http";
 import {useDispatch} from "react-redux";
 import {REFRESH_CONTACT} from "../../../../contacts/store";
 import {useParams} from "react-router-dom";
-import {Modal} from 'antd';
+import {Empty, Modal} from 'antd';
 
 function Notes({notes}) {
     const [note, setNote] = useState(null);
@@ -16,8 +17,8 @@ function Notes({notes}) {
     const dispatch = useDispatch();
     
     const {contact_id} = useParams();
-    const handleDelete = async (noteId) => {
 
+    const handleDelete = async (noteId) => {
         Modal.confirm({
             content: 'Do you want to delete this note?',
             onOk: async () => {
@@ -37,6 +38,8 @@ function Notes({notes}) {
 
             <EditNote note={note} open={open} setOpen={setOpen} />
 
+            {notes.length === 0 && <Empty />}
+
             <div className={'mt-3'}>
 
                 {notes.map(note => {
@@ -47,22 +50,26 @@ function Notes({notes}) {
 
                             <div className={'d-flex justify-content-between'}>
                         
-                                <strong>Note</strong>
-                        
-                                <MenuAction
-                                    onDelete={() => {
-                                        handleDelete(note.noteId)
-                                    }}
-                                    onEdit={() => {
-                                        setNote(note);
-                                        setOpen(true);
-                                    }}/>
+                                <div className={'d-flex'}>
+                                    <strong className={'me-2'}>Note By</strong>
+                                    {note.User.username}
+                                </div>
+                            
+                                    <MenuAction
+                                        onDelete={() => {
+                                            handleDelete(note.noteId)
+                                        }}
+                                        onEdit={() => {
+                                            setNote(note);
+                                            setOpen(true);
+                                        }}/>
 
                             </div>
                         
                             <p className={'mt-2'}>{note.content}</p>
 
                             <span className={'text-primary'} role={'button'}>Add Comment</span>
+                            
                         </div>
                     )
                 })}
