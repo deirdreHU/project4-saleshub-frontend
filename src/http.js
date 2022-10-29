@@ -11,6 +11,7 @@ authedRequest.interceptors.request.use(function (config) {
         Authorization: `Bearer ${localStorage.getItem(JWT_TOKEN)}`,
     }
     return config;
+    console.log("config is:", config)
 }, function (err) {
   return Promise.reject(err);
 });

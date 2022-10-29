@@ -29,7 +29,7 @@ function EditContact({visible, onClose, defaultValues}) {
     }, [visible]);
 
     useEffect(() => {
-        if (defaultValues && form) {
+        if (defaultValues && form && open) {
             form.setFieldValue({
                 ...defaultValues,
                 assignedTo: defaultValues.User.username
@@ -121,10 +121,10 @@ function EditContact({visible, onClose, defaultValues}) {
                         ]}
                     >
                         <TextField
-                        fullWidth
-                        variant={'standard'}
-                        label={'Country'}
-                        select
+                            fullWidth
+                            variant={'standard'}
+                            label={'Country'}
+                            select
                         >
                         {countries.map(country => {
                             return <MenuItem key={country.name} value={country.name}>{country.name}</MenuItem>

@@ -2,7 +2,7 @@ import ListIcon from '@mui/icons-material/List';
 import {useState} from "react";
 
 import {MenuItem, Menu} from "@mui/material";
-function MenuAction(onEdit, onDelete) {
+function MenuAction({onEdit, onDelete}) {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
