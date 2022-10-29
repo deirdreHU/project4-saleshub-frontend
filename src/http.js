@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {message} from "antd";
 export const JWT_TOKEN = 'JWT_TOKEN';
-export const SERVER_URL = `http://localhost:4000`;
+export const SERVER_URL = `https://projecr4-saleshub.herokuapp.com/`;
 
 const authedRequest = axios.create();
 
@@ -11,7 +11,6 @@ authedRequest.interceptors.request.use(function (config) {
         Authorization: `Bearer ${localStorage.getItem(JWT_TOKEN)}`,
     }
     return config;
-    console.log("config is:", config)
 }, function (err) {
   return Promise.reject(err);
 });
