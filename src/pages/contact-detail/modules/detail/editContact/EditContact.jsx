@@ -10,7 +10,7 @@ import {useStaff} from "../../../../../hooks/useStaff";
 import {countries} from "../../../../../consts/countries.data";
 
 import {useDispatch} from "react-redux";
-import {REFRESH_CONTACT, UPDATE_CONTACT} from "../../../../../pages/contacts/store";
+import {REFRESH_CONTACT, UPDATE_CONTACT} from "../../../../../pages/home/store";
 import {useParams} from "react-router-dom";
 
 function EditContact({visible, onClose, defaultValues}) {

@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {Avatar, Button, Menu, MenuItem} from '@mui/material';
+import {Avatar, Menu, MenuItem} from '@mui/material';
 import {AuthConsumer as useAuth} from "../../auth";
 import { useNavigate } from 'react-router-dom';
 

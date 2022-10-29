@@ -6,7 +6,7 @@ import {Form} from "antd";
 import {useParams} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {authedRequest} from "../../../../../http";
-import {REFRESH_CONTACT} from "../../../../contacts/store";
+import {REFRESH_CONTACT} from "../../../../home/store";
 
 export const CreateNote = () => {
     const {contact_id} = useParams();

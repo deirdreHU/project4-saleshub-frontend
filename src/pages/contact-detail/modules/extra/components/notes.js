@@ -1,5 +1,4 @@
 import MenuAction from "../../../../../components/menuAction/MenuAction";
-import {Avatar, Button} from "@mui/material";
 import {CreateNote} from "./createNote";
 import {EditNote} from "./editNote";
 
@@ -7,7 +6,7 @@ import {useState} from "react";
 
 import {authedRequest} from "../../../../../http";
 import {useDispatch} from "react-redux";
-import {REFRESH_CONTACT} from "../../../../contacts/store";
+import {REFRESH_CONTACT} from "../../../../home/store";
 import {useParams} from "react-router-dom";
 import {Empty, Modal} from 'antd';
 

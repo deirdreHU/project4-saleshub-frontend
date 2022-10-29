@@ -1,12 +1,12 @@
 import {Button,Typography} from "@mui/material";
 import {Input, Table} from "antd";
-import CreateContact from "../contacts/modules/createContact/CreateContact";
+import CreateContact from "../contacts/components/CreateContact";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {REFRESH_CONTACTS, SET_QUERY} from "../contacts/store";
+import {REFRESH_CONTACTS, SET_QUERY} from "../../store";
 import moment from 'moment';
-import SearchSelector from "../../components/searchSelector/SearchSelector";
-import {useStaff} from "../../hooks/useStaff";
+import SearchSelector from "../../../../components/searchSelector/SearchSelector";
+import {useStaff} from "../../../../hooks/useStaff";
 import {useNavigate} from "react-router-dom";
 
 const TableColumns = [

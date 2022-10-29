@@ -2,10 +2,9 @@ import {useParams} from "react-router-dom";
 import {Grid} from "@mui/material";
 import Detail from "./modules/detail";
 import Extra from "./modules/extra";
-import {useContact} from '../../hooks/useContact';
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {REFRESH_CONTACT} from "../contacts/store";
+import {REFRESH_CONTACT} from "../home/store";
 
 function ContactDetail() {
 
