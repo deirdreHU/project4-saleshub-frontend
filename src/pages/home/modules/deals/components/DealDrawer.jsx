@@ -23,7 +23,7 @@ export const DealDrawer = ({open = false, setOpen}) => {
 
     useEffect(() => {
         dispatch(REFRESH_ALL_CONTACTS());
-    }, []);
+    }, [dispatch]);
 
     const handleSubmit = async (values) => {
         const deal = {...values};
@@ -72,13 +72,13 @@ export const DealDrawer = ({open = false, setOpen}) => {
                         }
                     ]} name={'contact'}>
                         <SearchSelector
-                        onChange={val => {
-                            const contactName = val;
-                            const contactId = allContacts.find(contact => contact.name === contactName).contactId;
-                            form.setFieldValue('contact', contactId);
-                        }}
-                        label={'Contact'}
-                        options={allContacts.map(contact => contact.name)}
+                            onChange={val => {
+                                const contactName = val;
+                                const contactId = allContacts.find(contact => contact.name === contactName).contactId;
+                                form.setFieldValue('contact', contactId);
+                            }}
+                            label={'Contact'}
+                            options={allContacts.map(contact => contact.name)}
                         />
                     </Form.Item>
 

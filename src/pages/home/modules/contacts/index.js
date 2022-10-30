@@ -1,4 +1,4 @@
-import {Button,Typography} from "@mui/material";
+import {Button} from "@mui/material";
 import {Input, Table} from "antd";
 import CreateContact from "../contacts/components/CreateContact";
 import {useDispatch, useSelector} from "react-redux";
@@ -84,16 +84,17 @@ function Contacts() {
     
     useEffect(() => {
         dispatch(REFRESH_CONTACTS());
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         dispatch(SET_QUERY({
             key: 'assignedTo',
             value: assignedTo.map(item => {
-            return staffs.find(staff => staff.username === item).userId;
+                return staffs.find(staff => staff.username === item).userId;
             })
         }));
         dispatch(REFRESH_CONTACTS());
+        // eslint-disable-next-line 
     }, [assignedTo]);
 
     useEffect(() => {
@@ -102,13 +103,14 @@ function Contacts() {
             value: lifeCycleStage
         }));
         dispatch(REFRESH_CONTACTS());
+        // eslint-disable-next-line 
     }, [lifeCycleStage]);
 
     return (
         <div>
 
             <div className={'d-flex'}>
-                <Typography variant={'h5'} className={'me-auto'}>Contacts</Typography>
+                <div variant={'h5'} className={'me-auto'}>Contacts</div>
                 <CreateContact />
             </div>
 

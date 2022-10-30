@@ -21,31 +21,31 @@ function SearchSelector({
         <div >
 
             <Autocomplete
-            multiple={multiple}
-            id="checkboxes-tags-demo"
-            options={options}
-            onChange={(_, value) => {
-                onChange && onChange(value);
-            }}
-            disableCloseOnSelect
-            getOptionLabel={(option) => option}
-            renderOption={(props, option, { selected }) => (
-                <li {...props}>
-                <Checkbox
-                    icon={icon}
-                    checkedIcon={checkedIcon}
-                    style={{ marginRight: 8 }}
-                    checked={selected}
-                />
-                {option}
-                </li>
-            )}
-            renderInput={(params) => (
-                <TextField
-                variant={'standard'}
-                {...params}
-                label={label} placeholder={label} />
-            )}
+                multiple={multiple}
+                id="checkboxes-tags-demo"
+                options={options}
+                onChange={(_, value) => {
+                    onChange && onChange(value);
+                }}
+                disableCloseOnSelect
+                getOptionLabel={(option) => option}
+                renderOption={(props, option, { selected }) => (
+                    <li {...props}>
+                    <Checkbox
+                        icon={icon}
+                        checkedIcon={checkedIcon}
+                        style={{ marginRight: 8 }}
+                        checked={selected}
+                    />
+                    {option}
+                    </li>
+                )}
+                renderInput={(params) => (
+                    <TextField
+                    variant={'standard'}
+                    {...params}
+                    label={label} placeholder={label} />
+                )}
             />
 
         </div>

@@ -35,11 +35,14 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
     }, [deal]);
 
     useEffect(() => {
+
         if(deal && open)
         {
             const newDefaultValues = {
                 ...deal
             };
+
+            console.log("NewDefaultValues:", newDefaultValues)
         
             newDefaultValues.assignedTo = deal.User.username;
             newDefaultValues.contact = deal.Contact.name;
@@ -48,10 +51,11 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
             }
 
             setDefaultValues(newDefaultValues);
+            console.log("defautValues",defaultValues)
         }
+        // eslint-disable-next-line
     }, [deal,open]);
     
-
     const handleSubmit = async (values) => {
         const deal = {...values};
         deal.closeDate = deal.closeDate.toDate().toString();
@@ -120,7 +124,8 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
                     <Form.Item rules={[
                         {
                             required: true,
-                            message: 'Please select deal stage'
+                            message: 'Please select deal stage',
+                            initialvalue:""
                         }
                     ]} name={'dealStage'}>
                         <TextField
