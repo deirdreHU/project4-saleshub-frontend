@@ -22,16 +22,35 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
     const allContacts = useSelector(state => state.home.allContacts);
     const dispatch = useDispatch();
     const [closeDate, setCloseDate] = useState(null);
+    const [defaultValues, setDefaultValues] = useState({});
 
     useEffect(() => {
         dispatch(REFRESH_ALL_CONTACTS());
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         if (deal && deal.closeDate) {
-        setCloseDate(moment(new Date(deal.closeDate)));
+            setCloseDate(moment(new Date(deal.closeDate)));
         }
     }, [deal]);
+
+    useEffect(() => {
+        if(deal && open)
+        {
+            const newDefaultValues = {
+                ...deal
+            };
+        
+            newDefaultValues.assignedTo = deal.User.username;
+            newDefaultValues.contact = deal.Contact.name;
+            if (newDefaultValues.closeDate) {
+                form.setFieldValue('closeDate', moment(new Date(newDefaultValues.closeDate)));
+            }
+
+            setDefaultValues(newDefaultValues);
+        }
+    }, [deal,open]);
+    
 
     const handleSubmit = async (values) => {
         const deal = {...values};
@@ -47,15 +66,6 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
         return <></>
     }
 
-    const defaultValues = {
-        ...deal
-    };
-
-    defaultValues.assignedTo = deal.User.username;
-    defaultValues.contact = deal.Contact.name;
-    if (defaultValues.closeDate) {
-        form.setFieldValue('closeDate', moment(new Date(defaultValues.closeDate)));
-    }
     return (
         <Drawer
             onClose={() => setOpen(false)}
@@ -130,7 +140,7 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
                     <Form.Item rules={[
                         {
                             required: true,
-                        message: 'Please select close date'
+                            message: 'Please select close date'
                         }
                     ]} name={'closeDate'}>
                         <div>

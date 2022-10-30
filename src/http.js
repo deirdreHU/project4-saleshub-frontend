@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {message} from "antd";
 export const JWT_TOKEN = 'JWT_TOKEN';
-export const SERVER_URL = `https://projecr4-saleshub.herokuapp.com/`;
+export const SERVER_URL = `https://projecr4-saleshub.herokuapp.com`;
 
 const authedRequest = axios.create();
 

@@ -10,11 +10,11 @@ function DealList({deals}) {
 
                 return (
                     <div key={deal.dealId}>
-                        <p>
+                        <span>
                             <strong>
                                 (Deal name): {deal.name}
                             </strong>
-                        </p>
+                        </span>
 
                         <Paper >
 

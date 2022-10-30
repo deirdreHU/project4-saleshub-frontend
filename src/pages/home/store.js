@@ -84,7 +84,7 @@ export const REFRESH_CONTACTS = () => (dispatch, getState) => {
     })
 }
 
-export const REFRESH_ALL_CONTACTS = () => dispatch => {
+export const REFRESH_ALL_CONTACTS = () => (dispatch) => {
     authedRequest.get(`/api/contacts`)
         .then(res => {
             if (res && res.data) {
@@ -111,7 +111,9 @@ export const REFRESH_DEALS = () => dispatch => {
         })
 }
 
+
 export const FILTER_DEALS = (name, dealStage, assignedTo, createdOn, closedOn, contacts) => async (dispatch, getState) => {
+    
     const res = await authedRequest.get(`/api/deals`);
     const deals = res.data;
 
@@ -134,9 +136,11 @@ export const FILTER_DEALS = (name, dealStage, assignedTo, createdOn, closedOn, c
         if (createdOn) {
             matched = matched && new Date(deal.createdAt).getTime() > createdOn.toDate().getTime();
         }
+
         if (closedOn && deal.closeDate) {
             matched = matched && new Date(deal.closeDate).getTime() < closedOn.toDate().getTime();
         }
+
         if (contacts && contacts.length > 0) {
             matched = matched && contacts.includes(deal.contact);
         }
