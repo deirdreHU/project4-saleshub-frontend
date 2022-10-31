@@ -14,6 +14,7 @@ export const DealDetail = () => {
 
     useEffect(() => {
         dispatch(REFRESH_DEAL(deal_id));
+        // eslint-disable-next-line 
     }, [deal_id]);
 
     return (

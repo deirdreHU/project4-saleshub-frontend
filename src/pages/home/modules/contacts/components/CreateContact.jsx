@@ -17,8 +17,9 @@ function CreateContact() {
 
     useEffect(() => {
         if (open) {
-        form.resetFields(null);
+            form.resetFields(null);
         }
+        // eslint-disable-next-line 
     }, [open]);
 
     const handleSubmit = async (values) => {

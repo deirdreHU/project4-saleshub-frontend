@@ -27,6 +27,7 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
     
     useEffect(() => {
         dispatch(REFRESH_ALL_CONTACTS());
+        // eslint-disable-next-line 
     }, []);
 
     useEffect(() => {
@@ -50,6 +51,7 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
 
             setDefaultValues(newDefaultValues);
         }
+        // eslint-disable-next-line 
     }, [deal, open]);
 
     const handleSubmit = async (values) => {

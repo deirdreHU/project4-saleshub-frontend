@@ -30,6 +30,7 @@ export const DealsFilter = () => {
             closedOn,
             contact
         ))
+        // eslint-disable-next-line 
     }, [name, dealStage, assignedTo, createdOn, closedOn, contact]);
 
     return (

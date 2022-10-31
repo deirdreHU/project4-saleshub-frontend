@@ -14,6 +14,7 @@ function ContactDetail() {
 
     useEffect(() => {
         dispatch(REFRESH_CONTACT(contact_id));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [contact_id]);
 
 

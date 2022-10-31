@@ -35,7 +35,7 @@ function EditContact({visible, onClose, defaultValues}) {
                 assignedTo: defaultValues.User.username
             })
         }
-    }, [defaultValues]);
+    }, [defaultValues,form,open]);
 
     const handleSubmit = async (values) => {
         values.assignedTo = staffs.find(staff => staff.username === values.assignedTo).userId;

@@ -11,7 +11,8 @@ function HeaderBar() {
     const navigate = useNavigate();
 
     return (
-        <div className={style.headerBar + ' ' + 'bg-primary d-flex align-items-center'}>
+        // eslint-disable-next-line 
+        <div className={style.headerBar + " "  + 'bg-primary d-flex align-items-center'}>
 
             <AppsIcon className={'text-white me-3'}/>
             

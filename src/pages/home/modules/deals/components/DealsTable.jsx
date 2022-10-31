@@ -76,6 +76,7 @@ export const DealsTable = () => {
 
     useEffect(() => {
         dispatch(REFRESH_DEALS());
+        // eslint-disable-next-line 
     }, []);
 
     return (
