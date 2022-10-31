@@ -24,9 +24,10 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
     const [closeDate, setCloseDate] = useState(null);
     const [defaultValues, setDefaultValues] = useState({});
 
+    
     useEffect(() => {
         dispatch(REFRESH_ALL_CONTACTS());
-    }, [dispatch]);
+    }, []);
 
     useEffect(() => {
         if (deal && deal.closeDate) {
@@ -35,14 +36,11 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
     }, [deal]);
 
     useEffect(() => {
-
         if(deal && open)
         {
             const newDefaultValues = {
                 ...deal
             };
-
-            console.log("NewDefaultValues:", newDefaultValues)
         
             newDefaultValues.assignedTo = deal.User.username;
             newDefaultValues.contact = deal.Contact.name;
@@ -51,11 +49,9 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
             }
 
             setDefaultValues(newDefaultValues);
-            console.log("defautValues",defaultValues)
         }
-        // eslint-disable-next-line
-    }, [deal,open]);
-    
+    }, [deal, open]);
+
     const handleSubmit = async (values) => {
         const deal = {...values};
         deal.closeDate = deal.closeDate.toDate().toString();
@@ -69,6 +65,8 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
     if (!deal) {
         return <></>
     }
+
+
 
     return (
         <Drawer
@@ -115,7 +113,7 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
                             onChange={val => {
                                 form.setFieldValue('contact', val);
                             }}
-                            defaultValue={[defaultValues.contact]}
+                            defaultValue={defaultValues.contact}
                             label={'Contact'}
                             options={allContacts.map(contact => contact.name)}
                         />
@@ -125,7 +123,7 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
                         {
                             required: true,
                             message: 'Please select deal stage',
-                            initialvalue:""
+                            
                         }
                     ]} name={'dealStage'}>
                         <TextField
@@ -133,12 +131,12 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
                             variant={'standard'}
                             label={'Deal Stage'}
                             select>
-                            <MenuItem value={'Qualified to buy'}>Qualified to buy</MenuItem>
-                            <MenuItem value={'Appointment scheduled'}>Appointment scheduled</MenuItem>
-                            <MenuItem value={'Qualified to buy'}>Qualified to buy</MenuItem>
-                            <MenuItem value={'Presentation scheduled'}>Presentation scheduled</MenuItem>
-                            <MenuItem value={'Closed won'}>Closed won</MenuItem>
-                            <MenuItem value={'Closed lost'}>Closed lost</MenuItem>
+                                <MenuItem value={'Qualified to buy'}>Qualified to buy</MenuItem>
+                                <MenuItem value={'Appointment scheduled'}>Appointment scheduled</MenuItem>
+                                <MenuItem value={'Qualified to buy'}>Qualified to buy</MenuItem>
+                                <MenuItem value={'Presentation scheduled'}>Presentation scheduled</MenuItem>
+                                <MenuItem value={'Closed won'}>Closed won</MenuItem>
+                                <MenuItem value={'Closed lost'}>Closed lost</MenuItem>
                         </TextField>
                     </Form.Item>
 
@@ -167,11 +165,11 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
                     <Form.Item rules={[
                         {
                             required: true,
-                            message: 'Please select assign to'
+                            message: 'Please select assign to',
                         }
-                    ]} name={'assignedTo'}>
+                    ]} name={'assignedTo'} >
                         <SearchSelector
-                            defaultValue={[defaultValues.assignedTo]}
+                            defaultValue={defaultValues.assignedTo}
                             onChange={val => {
                                 form.setFieldValue('assignedTo', val);
                             }}

@@ -9,19 +9,24 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 function SearchSelector({
-        label,
-        options,
-        onChange,
-        multiple = false
+    defaultValue,
+    label,
+    options,
+    onChange,
+    multiple = false,
 }) 
-    
+
 {
+    React.useEffect(() =>{
+        console.log(defaultValue);
+    }, [defaultValue]);
     return (
 
         <div >
 
             <Autocomplete
                 multiple={multiple}
+                inputValue={defaultValue}
                 id="checkboxes-tags-demo"
                 options={options}
                 onChange={(_, value) => {
@@ -31,12 +36,12 @@ function SearchSelector({
                 getOptionLabel={(option) => option}
                 renderOption={(props, option, { selected }) => (
                     <li {...props}>
-                    <Checkbox
-                        icon={icon}
-                        checkedIcon={checkedIcon}
-                        style={{ marginRight: 8 }}
-                        checked={selected}
-                    />
+                        <Checkbox
+                            icon={icon}
+                            checkedIcon={checkedIcon}
+                            style={{ marginRight: 8 }}
+                            checked={selected}
+                        />
                     {option}
                     </li>
                 )}
@@ -49,8 +54,10 @@ function SearchSelector({
             />
 
         </div>
-        
-    )
+    
+)
 }
+
+
 
 export default SearchSelector;
