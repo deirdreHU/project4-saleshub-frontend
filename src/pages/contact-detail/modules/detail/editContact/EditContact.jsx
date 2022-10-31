@@ -133,20 +133,21 @@ function EditContact({visible, onClose, defaultValues}) {
                     </Form.Item>
 
                     <Form.Item
-                        name={'assignedTo'}
                         rules={[
                         {
                             required: true,
                             message: 'Please select a staff'
                         }
-                        ]}
+                        ]} name={'assignedTo'}
                     >
                         <SearchSelector
-                        defaultValue={[defaultValues?.User?.username]}
-                        onChange={(val) => {
-                            form.setFieldValue('assignedTo', val);
-                        }}
-                        label={'Assigned To'} options={staffs.map(staff => staff.username)}/>
+                            defaultValues={[defaultValues?.User?.username]}
+                            onChange={(val) => {
+                                form.setFieldValue('assignedTo', val);
+                            }}
+                            label={'Assigned To'}
+                            options={staffs.map(staff => staff.username)}
+                        />
                     </Form.Item>
 
                     <Form.Item
