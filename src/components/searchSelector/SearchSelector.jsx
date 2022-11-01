@@ -20,6 +20,7 @@ function SearchSelector({
     React.useEffect(() =>{
         console.log(defaultValue);
     }, [defaultValue]);
+    
     return (
 
         <div >

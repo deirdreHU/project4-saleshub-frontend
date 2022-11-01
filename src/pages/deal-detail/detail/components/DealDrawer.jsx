@@ -37,8 +37,8 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
     }, [deal]);
 
     useEffect(() => {
-        if(deal && open)
-        {
+        // if(deal && open)
+        // {
             const newDefaultValues = {
                 ...deal
             };
@@ -50,7 +50,7 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
             }
 
             setDefaultValues(newDefaultValues);
-        }
+        // }
         // eslint-disable-next-line 
     }, [deal, open]);
 
