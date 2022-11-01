@@ -63,7 +63,7 @@ export const DealsFilter = () => {
             <div  className={'me-2'} style={{width: '220px'}}>
                 <SearchSelector
                     multiple
-                    defaultValue={[]}
+                    defaultValues={[]}
                     onChange={val => {
                         const staffNames = val;
                         const staffIds = staffNames.map(staff => {
@@ -107,7 +107,7 @@ export const DealsFilter = () => {
             <div className={'me-2'} style={{width: '200px'}}>
                 <SearchSelector
                     multiple
-                    defaultValue={[]}
+                    defaultValues={[]}
                     onChange={val => {
                         const contactNames = val;
                         const contactIds = contactNames.map(name => {

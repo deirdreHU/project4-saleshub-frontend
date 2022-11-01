@@ -110,7 +110,7 @@ function Contacts() {
         <div>
 
             <div className={'d-flex'}>
-                <div variant={'h5'} className={'me-auto'}>Contacts</div>
+                <div variant={'h6'} className={'me-auto'}>Contacts</div>
                 <CreateContact />
             </div>
 
