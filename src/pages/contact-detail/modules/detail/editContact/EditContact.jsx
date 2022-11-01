@@ -141,7 +141,7 @@ function EditContact({visible, onClose, defaultValues}) {
                         ]} name={'assignedTo'}
                     >
                         <SearchSelector
-                            defaultValues={[defaultValues?.User?.username]}
+                            defaultValue={defaultValues.assignedTo}
                             onChange={(val) => {
                                 form.setFieldValue('assignedTo', val);
                             }}
