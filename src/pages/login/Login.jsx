@@ -1,5 +1,5 @@
 import {AuthConsumer as useAuth} from "../../auth";
-import {Button, Grid, Paper, TextField} from "@mui/material";
+import {Button, Grid, TextField} from "@mui/material";
 import {Form, message} from "antd";
 import {Link, useNavigate} from "react-router-dom";
 import Logo from "../../components/logo/Logo";
@@ -24,12 +24,18 @@ function Login() {
     }
 
     return (
-        <div className={'container container-header'}>
-            <Paper elevation={13} className={'w-100 p-3 m-auto'}>
+        <>
+            <div>
+                <Grid container mt={8} mb={4} display="flex" justifyContent="center" alignItems="center">
+                    <Logo />
+                </Grid>
+            </div>
 
-                <Grid container>
+            <div className={'container'}>
 
-                    <Grid item xs={4} className={'d-flex flex-column p-3'}>
+                <Grid container spacing={4} display="flex" justifyContent="center" alignItems="center" >
+
+                    <Grid item xs={4} >
 
                         <Form
                             layout={'vertical'}
@@ -37,11 +43,8 @@ function Login() {
                             name="login-form"
                             autoComplete="off">
 
-                            <Logo />
+                            <h5 className={'mt-3 mb-3'}>Log in</h5>
 
-                            <h5 className={'mt-3'}>Log in</h5>
-
-                            <label className={'form-label text-secondary fw-bold'}>Email Address</label>
                             <Form.Item
                                 rules={[
                                     { required: true, message: 'Please input an correct email!', type: 'email' },
@@ -50,7 +53,6 @@ function Login() {
                                 <TextField label="Email Address" fullWidth variant="filled" />
                             </Form.Item>
 
-                            <label className={'form-label text-secondary fw-bold'}>Password</label>
                             <Form.Item
                                 name={'password'}
                                 rules={[
@@ -60,7 +62,7 @@ function Login() {
                             </Form.Item>
 
                             <Form.Item>
-                                <Button type={'submit'} fullWidth variant={'contained'} color={'secondary'}>Log in</Button>
+                                <Button type={'submit'} fullWidth variant={'contained'} color={'primary'}>Log in</Button>
                             </Form.Item>
 
                             <p className={'text-black text-end'}>
@@ -71,13 +73,10 @@ function Login() {
 
                     </Grid>
 
-                    <Grid item xs={8}></Grid>
-
                 </Grid>
 
-            </Paper>
-
-        </div>
+            </div>
+        </>
     )
 }
 

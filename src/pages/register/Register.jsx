@@ -1,4 +1,4 @@
-import {Button, Grid, Paper, TextField} from "@mui/material";
+import {Button, Grid, TextField} from "@mui/material";
 import {Form, message} from "antd";
 import {Link, useNavigate} from "react-router-dom";
 import Logo from "../../components/logo/Logo";
@@ -22,88 +22,86 @@ function Register() {
     }
 
     return (
-        <div className={'container container-header'}>
+        <>
+            <div>
+                <Grid container mt={8} display="flex" justifyContent="center" alignItems="center">
+                    <Logo />
+                </Grid>
+            </div>
 
-            <Paper elevation={13} className={'w-100 m-auto'}>
+            <div className={'container'}>
 
-                <Grid container>
+                    <Grid container spacing={2} display="flex" justifyContent="center" alignItems="center">
 
-                    <Grid item xs={4} className={'d-flex flex-column p-3'}>
+                        <Grid item xs={4}>
 
-                        <Form
-                            form={form}
-                            onFinish={handleSubmit}
-                            layout={'vertical'}
-                            name="login-form"
-                            autoComplete="off">
+                            <Form
+                                form={form}
+                                onFinish={handleSubmit}
+                                layout={'vertical'}
+                                name="login-form"
+                                autoComplete="off">
 
-                            <Logo />
+                                <h5 className={'mt-3 mb-3'}>Create an account</h5>
 
-                            <h5 className={'mt-3'}>Sign up</h5>
+                                <Form.Item
+                                    rules={[
+                                        { required: true, message: 'Please input your username!' }
+                                    ]}
+                                    name={'username'}>
+                                    <TextField label="username" fullWidth variant="filled" />
+                                </Form.Item>
 
-                            <label className={'form-label text-secondary fw-bold mt-4'}>Username</label>
-                            <Form.Item
-                                rules={[{ required: true, message: 'Please input your username!' }]}
-                                name={'username'}>
-                                <TextField label="username" fullWidth variant="filled" />
-                            </Form.Item>
+                                <Form.Item
+                                    rules={[
+                                        { required: true, message: 'Please input an correct email!', type: 'email' },
+                                    ]}
+                                    name={'email'}>
+                                    <TextField label="Email Address" fullWidth variant="filled" />
+                                </Form.Item>
 
-                            <label className={'form-label text-secondary fw-bold'}>Email Address</label>
-                            <Form.Item
-                                rules={[
-                                    { required: true, message: 'Please input an correct email!', type: 'email' },
-                                ]}
-                                name={'email'}>
-                                <TextField label="Email Address" fullWidth variant="filled" />
-                            </Form.Item>
+                                <Form.Item
+                                    name={'password'}
+                                    rules={[
+                                    { required: true, message: 'Please input your password!' }
+                                    ]}>
+                                    <TextField type={'password'} label="Password*" fullWidth variant="filled" />
+                                </Form.Item>
 
-                            <label className={'form-label text-secondary fw-bold'}>Password</label>
-                            <Form.Item
-                                name={'password'}
-                                rules={[
-                                { required: true, message: 'Please input your password!' }
-                                ]}>
-                                <TextField type={'password'} label="Password*" fullWidth variant="filled" />
-                            </Form.Item>
-
-                            <label className={'form-label text-secondary fw-bold'}>Confirm your password</label>
-                            <Form.Item
-                                name={'confirmPassword'}
-                                rules={[
-                                    { required: true, message: 'Please input your password again!' },
-                                    {
-                                        message: 'Two password must same!',
-                                        validator: (_, value) => {
-                                        if (value === form.getFieldValue('password')) {
-                                            return Promise.resolve();
+                                <Form.Item
+                                    name={'confirmPassword'}
+                                    rules={[
+                                        { required: true, message: 'Please input your password again!' },
+                                        {
+                                            message: 'Two password must same!',
+                                            validator: (_, value) => {
+                                            if (value === form.getFieldValue('password')) {
+                                                return Promise.resolve();
+                                            }
+                                            return Promise.reject();
+                                            }
                                         }
-                                        return Promise.reject();
-                                        }
-                                    }
-                                ]}>
-                            <TextField type={'password'} label="Confirm your password" fullWidth variant="filled" />
-                            </Form.Item>
+                                    ]}>
+                                <TextField type={'password'} label="Confirm your password" fullWidth variant="filled" />
+                                </Form.Item>
 
-                            <Form.Item>
-                                <Button type={'submit'} fullWidth variant={'contained'} color={'primary'}>Sign up</Button>
-                            </Form.Item>
+                                <Form.Item>
+                                    <Button type={'submit'} fullWidth variant={'contained'} color={'primary'}>Sign up</Button>
+                                </Form.Item>
 
-                            <p className={'text-black text-end'}>
-                                Already have an account?
-                                <Link className={'text-info'} to={'/login'}>Sign In</Link>
-                            </p>
+                                <p className={'text-black text-end'}>
+                                    Already have an account?
+                                    <Link className={'text-info'} to={'/login'}>Sign In</Link>
+                                </p>
 
-                        </Form>
+                            </Form>
+
+                        </Grid>
 
                     </Grid>
 
-                    <Grid item xs={8} className={'bg-light p-3'}></Grid>
-
-                </Grid>
-
-            </Paper>
-
-        </div>
+            </div>
+        </>
     )
 }
 
