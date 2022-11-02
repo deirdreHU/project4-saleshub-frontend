@@ -25,9 +25,9 @@ function HeaderBar() {
                     className={'text-white'} onClick={() => navigate('/contacts')}>Contacts</Button>
 
                 <Button
-                    color={pathname.includes('/deals') ? 'info' : ''}
-                    variant={pathname.includes('/deals') ? 'contained' : ''}
-                    className={'text-white'} onClick={() => navigate('/deals')}>Deals</Button>
+                    color={pathname.includes('/deals/list') ? 'info' : ''}
+                    variant={pathname.includes('/deals/list') ? 'contained' : ''}
+                    className={'text-white'} onClick={() => navigate('/deals/list')}>Deals</Button>
             </div>
 
             <div className={'me-3 d-flex h-100 align-items-center'}>

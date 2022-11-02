@@ -20,7 +20,7 @@ function App() {
 
         <Route path={''} index element={<Navigate to={'contacts'} />} />
         <Route path={'contacts'} element={<Contacts />}/>
-        <Route path={'deals'} element={<Deals />}/>
+        <Route path={'deals/list'} element={<Deals />}/>
         <Route path={'deals/:deal_id'} element={<DealDetail />}/>
         <Route path={'contacts/:contact_id'} element={<ContactDetail />} />
       
