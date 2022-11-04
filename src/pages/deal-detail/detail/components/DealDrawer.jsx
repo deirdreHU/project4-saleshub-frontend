@@ -37,8 +37,6 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
     }, [deal]);
 
     useEffect(() => {
-        // if(deal && open)
-        // {
             const newDefaultValues = {
                 ...deal
             };
@@ -50,7 +48,6 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
             }
 
             setDefaultValues(newDefaultValues);
-        // }
         // eslint-disable-next-line 
     }, [deal, open]);
 
@@ -67,8 +64,6 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
     if (!deal) {
         return <></>
     }
-
-
 
     return (
         <Drawer
@@ -112,13 +107,17 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
                         }
                     ]} name={'contact'}>
                         <SearchSelector
-                            onChange={val => {
-                                form.setFieldValue('contact', val);
-                            }}
                             defaultValue={defaultValues.contact}
+                            onChange={val => {
+                                const newDefaultValues = { ...defaultValues };
+                                newDefaultValues.contact = val;
+                                setDefaultValues(newDefaultValues);
+                                // form.setFieldValue('contact', val);
+                            }}
                             label={'Contact'}
                             options={allContacts.map(contact => contact.name)}
                         />
+                        
                     </Form.Item>
 
                     <Form.Item rules={[
@@ -135,7 +134,6 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
                             select>
                                 <MenuItem value={'Qualified to buy'}>Qualified to buy</MenuItem>
                                 <MenuItem value={'Appointment scheduled'}>Appointment scheduled</MenuItem>
-                                <MenuItem value={'Qualified to buy'}>Qualified to buy</MenuItem>
                                 <MenuItem value={'Presentation scheduled'}>Presentation scheduled</MenuItem>
                                 <MenuItem value={'Closed won'}>Closed won</MenuItem>
                                 <MenuItem value={'Closed lost'}>Closed lost</MenuItem>
@@ -153,8 +151,8 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
                                 minDate={new Date()}
                                 value={closeDate}
                                 onChange={val => {
-                                form.setFieldValue('closeDate', val);
-                                setCloseDate(val);
+                                    form.setFieldValue('closeDate', val);
+                                    setCloseDate(val);
                                 }}
                                 label="Close date"
                                 renderInput={
@@ -173,7 +171,10 @@ export const DealDrawer = ({open = false, setOpen, deal}) => {
                         <SearchSelector
                             defaultValue={defaultValues.assignedTo}
                             onChange={val => {
-                                form.setFieldValue('assignedTo', val);
+                                const newDefaultValues = { ...defaultValues };
+                                newDefaultValues.assignedTo = val;
+                                setDefaultValues(newDefaultValues);
+                                // console.log("aaa", val)
                             }}
                             options={staffs.map(staff => staff.username)}
                             label={'Assigned to'}

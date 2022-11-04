@@ -10,6 +10,7 @@ import {useStaff} from "../../../../hooks/useStaff";
 import {useNavigate} from "react-router-dom";
 import ReactDragListView from 'react-drag-listview'
 
+
 export const Contacts = (props) =>  {
     const { navType, isEqualRedd } = props;
     const [_TableColumns, _setColumns] = useState([]);

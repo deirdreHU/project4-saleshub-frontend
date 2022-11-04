@@ -9,11 +9,11 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 function SearchSelector({
-    defaultValue,
     label,
     options,
     onChange,
     multiple = false,
+    defaultValue,
 }) 
 
 {
@@ -30,8 +30,8 @@ function SearchSelector({
                 inputValue={defaultValue}
                 id="checkboxes-tags-demo"
                 options={options}
-                onChange={(_, value) => {
-                    onChange && onChange(value);
+                onChange={(_, val) => {
+                    onChange && onChange(val);
                 }}
                 disableCloseOnSelect
                 getOptionLabel={(option) => option}
@@ -45,12 +45,13 @@ function SearchSelector({
                         />
                     {option}
                     </li>
+                    
                 )}
                 renderInput={(params) => (
-                    <TextField
-                    variant={'standard'}
-                    {...params}
-                    label={label} placeholder={label} />
+                        <TextField
+                        variant={'standard'}
+                        {...params}
+                        label={label} placeholder={label} />
                 )}
             />
 

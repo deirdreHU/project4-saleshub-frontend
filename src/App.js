@@ -7,6 +7,7 @@ import Contacts from "./pages/home/modules/contacts";
 import ContactDetail from "./pages/contact-detail";
 import {Deals} from "./pages/home/modules/deals";
 import {DealDetail} from "./pages/deal-detail";
+import {DealsBoard} from "./pages/home/modules/dealsBoard"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path={''} index element={<Navigate to={'contacts'} />} />
         <Route path={'contacts'} element={<Contacts />}/>
         <Route path={'deals/list'} element={<Deals />}/>
+        <Route path={'deals/board'} element={<DealsBoard />}/>
         <Route path={'deals/:deal_id'} element={<DealDetail />}/>
         <Route path={'contacts/:contact_id'} element={<ContactDetail />} />
       

@@ -29,7 +29,10 @@ function EditContact({visible, onClose, defaultValues}) {
     }, [visible]);
 
     useEffect(() => {
+        console.log(defaultValues)
         if (defaultValues && form && open) {
+            console.log(defaultValues)
+            console.log(1111)
             form.setFieldValue({
                 ...defaultValues,
                 assignedTo: defaultValues.User.username
@@ -133,21 +136,24 @@ function EditContact({visible, onClose, defaultValues}) {
                     </Form.Item>
 
                     <Form.Item
+                        name={'assignedTo'}
                         rules={[
                         {
                             required: true,
                             message: 'Please select a staff'
                         }
-                        ]} name={'assignedTo'}
+                        ]} 
                     >
-                        <SearchSelector
-                            defaultValue={defaultValues.assignedTo}
-                            onChange={(val) => {
-                                form.setFieldValue('assignedTo', val);
-                            }}
+                        <TextField
+                            fullWidth
+                            variant={'standard'}
                             label={'Assigned To'}
-                            options={staffs.map(staff => staff.username)}
-                        />
+                            select
+                        >
+                        {staffs.map(staff => {
+                            return <MenuItem key={staff.username} value={staff.username}>{staff.username}</MenuItem>
+                        })}
+                        </TextField>
                     </Form.Item>
 
                     <Form.Item

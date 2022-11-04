@@ -54,7 +54,6 @@ export const DealsFilter = () => {
                 select>
                 <MenuItem value={'Qualified to buy'}>Qualified to buy</MenuItem>
                 <MenuItem value={'Appointment scheduled'}>Appointment scheduled</MenuItem>
-                <MenuItem value={'Qualified to buy'}>Qualified to buy</MenuItem>
                 <MenuItem value={'Presentation scheduled'}>Presentation scheduled</MenuItem>
                 <MenuItem value={'Closed won'}>Closed won</MenuItem>
                 <MenuItem value={'Closed lost'}>Closed lost</MenuItem>
