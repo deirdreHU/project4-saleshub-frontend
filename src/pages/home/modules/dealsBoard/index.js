@@ -1,6 +1,6 @@
 import {DealsHeader} from "../deals/components/DealsHeader";
 
-import{Board} from "./components/Board"
+// import{Board} from "./components/Board"
 
 
 
@@ -10,10 +10,10 @@ export const DealsBoard = () => {
             <div>
                 <DealsHeader />
             </div>
-
+{/* 
             <div>
                 <Board />
-            </div>
+            </div> */}
         </>
     )
 }

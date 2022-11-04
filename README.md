@@ -8,9 +8,8 @@ It's a business software, which aims to supercharge your sales process and elimi
 It allows businesses to manage, communicate and track leads. It helps a business Sales team to interact with clients without spending valuable time and resources inputting data or writing the same email every time.
 
 ## Links
-- User Story<br>
-- Application link <br>
-- Wireframe
+- [Application link](https://xd.adobe.com/view/2b4de637-6ae1-4eb5-8c56-a4cba80d3082-7e1e/) <br>
+- [Wireframe](https://saleshub-project4.netlify.app)
 
 
 ## Database/Storage
