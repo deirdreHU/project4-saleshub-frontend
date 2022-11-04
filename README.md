@@ -1,11 +1,14 @@
 # SalesHub
 
 ## Application Description
+SalesHub, is contact management APP, is how you look after all of the contact data in your business, including contacts' details, communication preferences, sales history, and customer interactions with your company.
+It enables every team in your organization to have the information they need to stay productive and have the context they need to deliver personalized interactions.
+
 It's a business software, which aims to supercharge your sales process and eliminates friction by bringing all your tools and data together on one easy-to-use.
 It allows businesses to manage, communicate and track leads. It helps a business Sales team to interact with clients without spending valuable time and resources inputting data or writing the same email every time.
 
 ## Links
-- Application linke <br>
+- Application link <br>
 - User Story<br>
 - Wireframe
 

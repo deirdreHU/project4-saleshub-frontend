@@ -20,7 +20,7 @@ export const DealsTable = (props) =>  {
         },
 
         {
-            title: 'DEAL Amount',
+            title: 'DEAL AMOUNT',
             dataIndex: 'amount',
             key: 'amount',
             sorter: (a, b) => a.amount - b.amount,
