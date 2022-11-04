@@ -10,6 +10,8 @@ It allows businesses to manage, communicate and track leads. It helps a business
 ## Links
 - [Application link](https://xd.adobe.com/view/2b4de637-6ae1-4eb5-8c56-a4cba80d3082-7e1e/) <br>
 - [Wireframe](https://saleshub-project4.netlify.app)
+- [User Story](https://www.canva.com/design/DAFQ_bmFwUk/ClikrWo7Vv2-eqxIn6PW7Q/edit?utm_content=DAFQ_bmFwUk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- [Routes](https://docs.google.com/presentation/d/1LKxnozLnVPQl8vAcNq8roWpRK6xN7jpIIAGCpo5uqUo/edit?usp=sharing)
 
 
 ## Database/Storage
