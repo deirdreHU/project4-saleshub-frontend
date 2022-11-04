@@ -5,7 +5,6 @@ import style from './style.module.css';
 import CloseIcon from '@mui/icons-material/Close';
 import {Form} from "antd";
 
-import SearchSelector from "../../../../../components/searchSelector/SearchSelector";
 import {useStaff} from "../../../../../hooks/useStaff";
 import {countries} from "../../../../../consts/countries.data";
 
