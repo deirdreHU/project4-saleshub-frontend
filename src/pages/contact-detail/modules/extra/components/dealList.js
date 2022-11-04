@@ -4,8 +4,6 @@ import {useState,useEffect} from "react";
 import {useParams} from "react-router-dom";
 import {REFRESH_CONTACT,REFRESH_ALL_CONTACTS} from "../../../../home/store";
 import {useDispatch} from "react-redux";
-
-
 import { DealDrawer } from "../../../../home/modules/deals/components/DealDrawer";
 
 function DealList({deals}) {
@@ -19,14 +17,13 @@ function DealList({deals}) {
 
     useEffect(() => {
         dispatch(REFRESH_CONTACT(contact_id));
-
         // eslint-disable-next-line 
     }, [dispatch]);
 
     return (
         <>
         <div>
-            <DealDrawer open={open} setOpen={setOpen}/>
+            <DealDrawer open={open} setOpen={setOpen} contactId={contact_id}/>
                 <div className={'text-end'}>
                     <Button onClick={() => setOpen(true)} variant={'contained'}>Create deal</Button>
                 </div>

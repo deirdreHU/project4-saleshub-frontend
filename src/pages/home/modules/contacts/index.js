@@ -9,11 +9,25 @@ import SearchSelector from "../../../../components/searchSelector/SearchSelector
 import {useStaff} from "../../../../hooks/useStaff";
 import {useNavigate} from "react-router-dom";
 import ReactDragListView from 'react-drag-listview'
+import {Modal} from 'antd';
+import {authedRequest} from "../../../../http";
+// import {useParams} from "react-router-dom";
 
 
 export const Contacts = (props) =>  {
     const { navType, isEqualRedd } = props;
+    // const {contact_id} = useParams();
     const [_TableColumns, _setColumns] = useState([]);
+
+    const handleDelete = async (contact_id) => {
+        Modal.confirm({
+            content: 'This action cannot be undone,are you sure to delete?',
+            onOk: async () => {
+                await authedRequest.delete(`/api/contacts/${contact_id}`);
+                navigate(0)
+            }
+        })
+    }
 
     let TableColumns = [
         {
@@ -66,15 +80,20 @@ export const Contacts = (props) =>  {
         },
         {
             title: 'Action',
-            dataIndex: 'action',
+            dataIndex: 'contactId',
             key: 'action',
-            render: () => {
+            render: (contact_id) => {
                 return (
                     <div>
-                        <Button color={'warning'}>DELETE</Button>
+                        <Button color={'warning'} onClick={(e) => {
+                            e.stopPropagation();
+                            console.log("contactId", contact_id);
+                            handleDelete(contact_id);
+                        }}> DELETE</Button>
                     </div>
                 )
             }
+        
         }
     ];
 

@@ -8,8 +8,8 @@ It's a business software, which aims to supercharge your sales process and elimi
 It allows businesses to manage, communicate and track leads. It helps a business Sales team to interact with clients without spending valuable time and resources inputting data or writing the same email every time.
 
 ## Links
-- Application link <br>
 - User Story<br>
+- Application link <br>
 - Wireframe
 
 
@@ -17,27 +17,21 @@ It allows businesses to manage, communicate and track leads. It helps a business
 * **ElephantSQL** is a PostgreSQL database hosting service.will manage administrative tasks of PostgreSQL, such as installation, upgrades to latest stable version and backup handling. It is also integrated to several cloud application platforms.
 
 
-## Technologies
-
-* EJS is used to generate HTML with plain javascript to append to frontend.
-* Method-override is used to to convert HTTP verbs such as PUT or DELETE in places where the client doesn't support it
-shortid is used to create amazingly short non-sequential url-friendly unique ids
-* Bcrypt is used to hash and store passwords in database
-* Express-session is used to store the user state with each given being assigned a unique session.
-* MomentJS is used as a wrapper to handle Date object
-* Multer is used to handle multipart/form-data for images uploading
-* Bootstrap Material Design is used for CSS framework for HTML and CSS design templates
-
-
 ## Approaches Taken
-
-
-## Accomplishments
+* Set up database in elephantSql using the Sequelize in the backend
+* Set up a basic MVC structure with basic CRUD routes, and implement it in Sequelize
+* Built authentication page
+* Lnked the app to heroku
+* Follow the wireframe and user stories
 
 
 ## Difficulties faced
-* Backend:
-* Frontend
+1. I don't know how to link data using sequalize and sql together and am completely lost on how to write MVC after linking the data
+2. When working on front-end, how do I link the summary of the data. E.g. dropdown menu should display the specific category of data of this specific user - how do I retrieve and display these?
+3. Display of data and how the filters should work
+4. Try to understand and use the method of Redux
 
 ## Additional Features were under Considerations
-
+1. Creation of pipeline to allow users to easily view and manage all deals
+2. A system to manage staff and company, as there is currently an obvious loophole where all users have all rights and access where they can view each other's data freely which is wrong
+3. Some communication functions that allows user to email or chat with customers where all records are saved for future references
